@@ -1,0 +1,440 @@
+/* ================================================
+   ADMISIÓN PAGE — Escuela de Posgrado UDH
+   ================================================ */
+
+.admision-hero {
+  position: relative;
+  display: flex;
+  min-height: 50vh;
+  background: var(--color-black);
+  overflow: hidden;
+}
+
+.admision-hero__img-half {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.admision-hero__img-half img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admision-hero__content-half {
+  position: relative;
+  z-index: 1;
+  width: 55%;
+  display: flex;
+  align-items: center;
+  padding: var(--space-24) var(--space-10) var(--space-16) var(--space-10);
+  background: var(--color-black);
+  clip-path: polygon(0 0, 88% 0, 100% 100%, 0 100%);
+}
+
+.admision-hero__content {
+  max-width: 560px;
+}
+
+.admision-hero__tag {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-teal);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-4);
+}
+
+.admision-hero__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: var(--space-4);
+}
+
+.admision-hero__subtitle {
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---- Wizard Stepper ---- */
+
+.wizard {
+  padding: var(--space-24) var(--space-6);
+  background: var(--color-bg-primary);
+}
+
+.wizard__header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.wizard__tag {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-teal);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-4);
+}
+
+.wizard__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  letter-spacing: -0.5px;
+}
+
+.wizard__timeline {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 60px;
+}
+
+.wizard__timeline::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg,
+      var(--color-teal) 0%,
+      var(--color-zomp) 50%,
+      rgba(90, 158, 141, 0.2) 100%);
+}
+
+/* ---- Step ---- */
+
+.wizard-step {
+  position: relative;
+  margin-bottom: var(--space-6);
+}
+
+.wizard-step__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  cursor: pointer;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  user-select: none;
+}
+
+.wizard-step__header:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-teal);
+}
+
+.wizard-step__number {
+  position: absolute;
+  left: -60px;
+  top: var(--space-4);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-teal);
+  color: #ffffff;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  z-index: 1;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px var(--color-bg-primary), 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wizard-step__icon {
+  width: 36px;
+  height: 36px;
+  color: var(--color-teal);
+  flex-shrink: 0;
+}
+
+.wizard-step__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wizard-step__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  flex: 1;
+}
+
+.wizard-step__chevron {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-secondary);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.wizard-step__chevron svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wizard-step--open .wizard-step__chevron {
+  transform: rotate(180deg);
+}
+
+.wizard-step--open .wizard-step__header {
+  border-color: var(--color-teal);
+  box-shadow: var(--shadow-md);
+}
+
+.wizard-step--open .wizard-step__number {
+  background: var(--color-black);
+}
+
+.wizard-step__body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+  padding: 0 var(--space-5);
+}
+
+.wizard-step--open .wizard-step__body {
+  max-height: 600px;
+  opacity: 1;
+  padding: var(--space-6) var(--space-5);
+}
+
+.wizard-step__desc {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.wizard-step__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.wizard-step__list li {
+  position: relative;
+  padding-left: var(--space-6);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+.wizard-step__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: var(--color-teal);
+  border-radius: 50%;
+}
+
+.wizard-step__note {
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: #6B1C23;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.wizard-step__note strong {
+  color: #ffffff;
+}
+
+/* ---- Quick Links (Split Layout) ---- */
+
+.quick-links {
+  padding: var(--space-24) var(--space-6);
+  background: var(--color-bg-primary);
+}
+
+.quick-links__split {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.quick-links__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.quick-links__tag {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.quick-links__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--color-black);
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+
+.quick-links__title span {
+  color: var(--color-teal);
+}
+
+.quick-links__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
+.quick-links__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-4);
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  min-height: 150px;
+}
+
+.quick-links__card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.quick-links__card--saffron { background: var(--color-saffron); }
+.quick-links__card--zomp    { background: var(--color-zomp); }
+.quick-links__card--green   { background: var(--color-green); }
+.quick-links__card--jet     { background: var(--color-jet); }
+
+.quick-links__card--saffron { color: var(--color-black); }
+
+.quick-links__card-icon {
+  width: 40px;
+  height: 40px;
+  color: inherit;
+}
+
+.quick-links__card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.quick-links__card-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+.quick-links__card-desc {
+  font-size: var(--font-size-sm);
+  opacity: 0.75;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ---- CTA Section ---- */
+
+.admision-cta {
+  padding: var(--space-16) var(--space-6);
+  background: var(--color-bg-primary);
+  text-align: center;
+}
+
+.admision-cta__title {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  margin-bottom: var(--space-4);
+}
+
+.admision-cta__desc {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 550px;
+  margin: 0 auto var(--space-8);
+  line-height: 1.6;
+}
+
+.admision-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: var(--space-4) var(--space-8);
+  background: var(--color-teal);
+  color: #ffffff;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-md);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.admision-cta__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 153, 153, 0.35);
+  background: #00b3b3;
+}
+
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  .wizard__timeline {
+    padding-left: 48px;
+  }
+
+  .wizard__timeline::before {
+    left: 19px;
+  }
+
+  .wizard-step__number {
+    left: -48px;
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-size-base);
+  }
+
+  .wizard-step__icon {
+    display: none;
+  }
+
+  .quick-links__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .quick-links__grid {
+    grid-template-columns: 1fr;
+  }
+}
