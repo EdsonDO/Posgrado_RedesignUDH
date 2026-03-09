@@ -56,7 +56,6 @@
 }
 
 .hero__title {
-  font-family: var(--font-family-heading);
   font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: var(--font-weight-bold);
   color: #ffffff;
@@ -121,6 +120,12 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0, 153, 153, 0.35);
   background: #00b3b3;
+}
+
+.hero__cta:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 15px rgba(0, 153, 153, 0.25);
+  background: var(--color-teal);
 }
 
 .hero__cta-arrow {
@@ -419,6 +424,11 @@
   color: var(--color-zomp-dark);
 }
 
+.oferta__card-link:active {
+  color: var(--color-teal);
+  transform: scale(0.98);
+}
+
 /* ---- Director Section ---- */
 
 .institucional-bg {
@@ -595,100 +605,71 @@
   border: none;
 }
 
-/* ---- Mini Stepper ---- */
+/* ---- Proceso de Admisión (Split Layout) ---- */
 
-.stepper {
+.admision-preview {
   padding: var(--space-24) var(--space-6);
   background: var(--color-bg-primary);
 }
 
-.stepper__header {
-  text-align: center;
-  margin-bottom: var(--space-16);
+.admision-preview__split {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-8);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  align-items: center;
 }
 
-.stepper__tag {
-  display: inline-block;
+.admision-preview__split::before {
+  content: '';
+  width: 5px;
+  height: 90%;
+  background: var(--color-black);
+  border-radius: 4px;
+  order: 2;
+}
+
+.admision-preview__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  order: 1;
+  padding-right: var(--space-12);
+}
+
+.admision-preview__tag {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   color: var(--color-zomp);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: var(--space-4);
 }
 
-.stepper__title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+.admision-preview__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: var(--font-weight-bold);
   color: var(--color-black);
-  letter-spacing: -0.5px;
+  line-height: 1.1;
+  letter-spacing: -1px;
 }
 
-.stepper__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
-  max-width: var(--container-max-width);
-  margin: 0 auto var(--space-12);
-}
-
-.stepper__step {
-  position: relative;
-  text-align: center;
-  padding: var(--space-8) var(--space-6);
-}
-
-.stepper__step-number {
+.admision-preview__text {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  margin: 0 auto var(--space-5);
-  border-radius: 50%;
-  background: var(--color-black);
-  color: var(--color-teal);
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-}
-
-.stepper__step-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-black);
-  margin-bottom: var(--space-3);
-}
-
-.stepper__step-desc {
-  font-size: var(--font-size-base);
-  line-height: 1.6;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--font-size-md);
   color: var(--color-text-secondary);
+  line-height: 1.7;
 }
 
-.stepper__step::after {
-  content: '';
-  position: absolute;
-  top: 52px;
-  right: -16%;
-  width: 32%;
-  height: 2px;
-  background: var(--color-border);
-}
-
-.stepper__step:last-child::after {
-  display: none;
-}
-
-.stepper__link {
-  display: block;
-  text-align: center;
-}
-
-.stepper__link a {
+.admision-preview__link {
   display: inline-flex;
   align-items: center;
   gap: 0.5em;
   padding: var(--space-3) var(--space-8);
+  margin-top: var(--space-4);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-semibold);
   color: #ffffff;
@@ -698,11 +679,82 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, gap 0.25s ease;
 }
 
-.stepper__link a:hover {
+.admision-preview__link:hover {
   gap: 0.7em;
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(0, 153, 153, 0.35);
   background: #00b3b3;
+}
+
+.admision-preview__link:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 15px rgba(0, 153, 153, 0.25);
+  background: var(--color-teal);
+}
+
+.admision-preview__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  order: 3;
+}
+
+/* ---- Componente de Tarjetas dentro del Stack ---- */
+.admision-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-8);
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-black);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.admision-card__bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.admision-card__number {
+  font-size: 4rem;
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  line-height: 1;
+  margin-bottom: var(--space-3);
+  position: relative;
+  z-index: 1;
+}
+
+.admision-card__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  margin-bottom: var(--space-4);
+  position: relative;
+  z-index: 1;
+}
+
+.admision-card p {
+  font-size: var(--font-size-md);
+  color: #e0e0e0;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 /* ---- CTA Section ---- */
@@ -757,6 +809,12 @@
   background: var(--color-zomp-light);
 }
 
+.cta-section__btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 15px rgba(90, 158, 141, 0.25);
+  background: var(--color-zomp-dark);
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 1024px) {
@@ -787,8 +845,7 @@
   }
 
   .esencia__grid,
-  .oferta__grid,
-  .stepper__grid {
+  .oferta__grid {
     grid-template-columns: 1fr;
     max-width: 640px;
     margin-left: auto;
@@ -799,8 +856,19 @@
     grid-template-columns: 1fr;
   }
 
-  .stepper__step::after {
+  .admision-preview__split {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    text-align: center;
+  }
+
+  .admision-preview__split::before {
     display: none;
+  }
+
+  .admision-preview__left {
+    padding-right: 0;
+    align-items: center;
   }
 }
 

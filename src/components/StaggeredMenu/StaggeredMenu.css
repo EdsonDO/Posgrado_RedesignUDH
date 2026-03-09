@@ -5,6 +5,7 @@
 
 .sm-scope {
   z-index: 40;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 .sm-scope--fixed {
@@ -14,6 +15,7 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .sm-scope--relative {

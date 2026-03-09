@@ -6,7 +6,9 @@ import heroImg from '@/assets/images/imagenref2.png'
 import epgLogo from '@/assets/images/escuela_dePosgrado_imagotipo.png'
 import campusImg1 from '@/assets/images/imagenref1.png'
 import campusImg2 from '@/assets/images/imagenref3.png'
-import directorBg from '@/assets/images/imagenref2.png'
+import directorBg from '@/assets/images/imagenref1.png'
+import bgStackCard from '@/assets/images/bgStackCard.png'
+import Stack from '@/components/Stack/Stack'
 import './HomePage.css'
 
 const IconMision = () => (
@@ -156,7 +158,7 @@ const HomePage = () => {
           <span className="novedades__tag">Actualidad</span>
           <h2 className="novedades__title">Novedades del Proceso de Admisión</h2>
         </div>
-        
+
         <div className="novedades__videos">
           <div className="novedades__video-wrap">
             <iframe
@@ -181,46 +183,63 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ── 4. PROCESO DE ADMISIÓN ── */}
-      <section className="stepper" id="admision-preview">
-        <div className="stepper__header">
-          <span className="stepper__tag">¿Cómo postular?</span>
-          <h2 className="stepper__title">Proceso de Admisión</h2>
-        </div>
-
-        <div className="stepper__grid">
-          <div className="stepper__step">
-            <div className="stepper__step-number">1</div>
-            <h3 className="stepper__step-title">Infórmate</h3>
-            <p className="stepper__step-desc">
-              Elige tu programa de maestría, doctorado o segunda especialidad.
-              Verifica los requisitos de tu modalidad de ingreso.
-            </p>
+      {/* ── 4. PROCESO DE ADMISIÓN (STACK SPLIT) ── */}
+      <section className="admision-preview" id="admision-preview">
+        <div className="admision-preview__split">
+          
+          <div className="admision-preview__left">
+            <span className="admision-preview__tag">¿Cómo postular?</span>
+            <h2 className="admision-preview__title">Proceso de Admisión</h2>
+            
+            <div className="admision-preview__text">
+              <p>Descubre cómo unirte a nuestra comunidad académica y empezar tu camino hacia el éxito profesional.</p>
+              <p>El proceso de admisión está diseñado para ser rápido, transparente y 100% digital, asegurando que puedas enviar tus documentos sin complicaciones.</p>
+              <p>Desliza las tarjetas interactivas de la derecha para conocer los pasos exactos que debes seguir. ¡Prepárate para dar el siguiente paso en tu carrera profesional hoy mismo!</p>
+            </div>
           </div>
 
-          <div className="stepper__step">
-            <div className="stepper__step-number">2</div>
-            <h3 className="stepper__step-title">Inscríbete</h3>
-            <p className="stepper__step-desc">
-              Regístrate en el Portal del Postulante con tu correo electrónico.
-              Adjunta tus documentos en formato PDF.
-            </p>
+          <div className="admision-preview__right">
+            <div style={{ width: 360, height: 360, marginBottom: '2rem' }}>
+              <Stack
+                randomRotation={true}
+                sensitivity={200}
+                sendToBackOnClick={true}
+                autoplay={false}
+                pauseOnHover={true}
+                cards={[
+                  <div className="admision-card" key="4">
+                    <img src={bgStackCard} alt="" className="admision-card__bg" />
+                    <span className="admision-card__number">✓</span>
+                    <h3 className="admision-card__title">¡Listo!</h3>
+                    <p>Revisa los resultados y prepárate para tu maestría.</p>
+                  </div>,
+                  <div className="admision-card" key="3">
+                    <img src={bgStackCard} alt="" className="admision-card__bg" />
+                    <span className="admision-card__number">3</span>
+                    <h3 className="admision-card__title">Examen</h3>
+                    <p>Paga tu inscripción, registra tu identidad facial y rinde el examen.</p>
+                  </div>,
+                  <div className="admision-card" key="2">
+                    <img src={bgStackCard} alt="" className="admision-card__bg" />
+                    <span className="admision-card__number">2</span>
+                    <h3 className="admision-card__title">Inscríbete</h3>
+                    <p>Regístrate en el Portal del Postulante y sube tus documentos (PDF).</p>
+                  </div>,
+                  <div className="admision-card" key="1">
+                    <img src={bgStackCard} alt="" className="admision-card__bg" />
+                    <span className="admision-card__number">1</span>
+                    <h3 className="admision-card__title">Infórmate</h3>
+                    <p>Elige tu maestría, doctorado o segunda especialidad.</p>
+                  </div>
+                ]}
+              />
+            </div>
+            
+            <Link to="/admision" className="admision-preview__link">
+              Ver guía completa <span aria-hidden="true">→</span>
+            </Link>
           </div>
 
-          <div className="stepper__step">
-            <div className="stepper__step-number">3</div>
-            <h3 className="stepper__step-title">Rinde tu examen</h3>
-            <p className="stepper__step-desc">
-              Realiza el pago de inscripción, registra tu identidad facial y
-              presenta el examen en la fecha de convocatoria.
-            </p>
-          </div>
-        </div>
-
-        <div className="stepper__link">
-          <Link to="/admision">
-            Ver guía completa <span aria-hidden="true">→</span>
-          </Link>
         </div>
       </section>
 

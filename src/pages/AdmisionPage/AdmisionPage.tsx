@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import heroImg from '@/assets/images/imagenref2.png'
+import heroImg from '@/assets/images/imagenref1.png'
 import './AdmisionPage.css'
 
 const ChevronDown = () => (
@@ -237,57 +237,61 @@ function AdmisionPage() {
             <h2 className="quick-links__title">Links<br /><span>Importantes</span></h2>
           </div>
 
-          <div className="quick-links__grid">
-            <a
-              href="https://posgrado.udh.edu.pe"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="quick-links__card quick-links__card--saffron"
-            >
-              <div className="quick-links__card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-              </div>
-              <span className="quick-links__card-title">Portal del Postulante</span>
-              <span className="quick-links__card-desc">Accede a tu cuenta</span>
-            </a>
+          <div className="quick-links__columns">
+            <div className="quick-links__column">
+              <a
+                href="https://posgrado.udh.edu.pe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="quick-links__card quick-links__card--saffron"
+              >
+                <div className="quick-links__card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </div>
+                <span className="quick-links__card-title">Portal del Postulante</span>
+                <span className="quick-links__card-desc">Accede a tu cuenta</span>
+              </a>
 
-            <Link to="/requisitos" className="quick-links__card quick-links__card--zomp">
-              <div className="quick-links__card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                </svg>
-              </div>
-              <span className="quick-links__card-title">Requisitos</span>
-              <span className="quick-links__card-desc">Documentación por modalidad</span>
-            </Link>
+              <Link to="/contacto" className="quick-links__card quick-links__card--green">
+                <div className="quick-links__card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                  </svg>
+                </div>
+                <span className="quick-links__card-title">Asesores</span>
+                <span className="quick-links__card-desc">Contacta un asesor</span>
+              </Link>
+            </div>
 
-            <Link to="/contacto" className="quick-links__card quick-links__card--green">
-              <div className="quick-links__card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-                </svg>
-              </div>
-              <span className="quick-links__card-title">Asesores</span>
-              <span className="quick-links__card-desc">Contacta un asesor</span>
-            </Link>
+            <div className="quick-links__column">
+              <Link to="/requisitos" className="quick-links__card quick-links__card--zomp">
+                <div className="quick-links__card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                  </svg>
+                </div>
+                <span className="quick-links__card-title">Requisitos</span>
+                <span className="quick-links__card-desc">Documentación por modalidad</span>
+              </Link>
 
-            <Link to="/maestrias" className="quick-links__card quick-links__card--jet">
-              <div className="quick-links__card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-                  <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
-                </svg>
-              </div>
-              <span className="quick-links__card-title">Programas</span>
-              <span className="quick-links__card-desc">Maestrías, Doctorados y más</span>
-            </Link>
+              <Link to="/maestrias" className="quick-links__card quick-links__card--jet">
+                <div className="quick-links__card-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+                  </svg>
+                </div>
+                <span className="quick-links__card-title">Programas</span>
+                <span className="quick-links__card-desc">Maestrías, Doctorados y más</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
