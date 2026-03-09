@@ -19,7 +19,7 @@ Guía de instalación y configuración para levantar el proyecto en una PC nueva
 ## 1. Clonar el repositorio
 
 ```bash
-git clone <URL_DEL_REPOSITORIO>
+git clone https://github.com/EdsonDO/Posgrado_RedesignUDH.git
 cd Posgrado_RedesignUDH
 ```
 
@@ -55,7 +55,7 @@ Vite levantará un servidor local. Verás algo como:
   ➜  Network: http://192.168.x.x:5173/
 ```
 
-Abre `http://localhost:5173/` en tu navegador.
+Abre `http://localhost:5173/` en tu navegador. Con CTRL + CLICK
 
 ---
 
