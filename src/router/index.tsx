@@ -3,6 +3,7 @@ import { lazy } from 'react'
 import MainLayout from '@/layouts/MainLayout/MainLayout'
 
 const HomePage = lazy(() => import('@/pages/HomePage/HomePage'))
+const NosotrosPage = lazy(() => import('@/pages/NosotrosPage/NosotrosPage'))
 const AdmisionPage = lazy(() => import('@/pages/AdmisionPage/AdmisionPage'))
 const MaestriasPage = lazy(() => import('@/pages/MaestriasPage/MaestriasPage'))
 const DoctoradosPage = lazy(() => import('@/pages/DoctoradosPage/DoctoradosPage'))
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: 'nosotros', element: <NosotrosPage /> },
       { path: 'admision', element: <AdmisionPage /> },
       { path: 'maestrias', element: <MaestriasPage /> },
       { path: 'doctorados', element: <DoctoradosPage /> },
