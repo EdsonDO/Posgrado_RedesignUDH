@@ -439,6 +439,29 @@
 /* ---- Responsive ---- */
 
 @media (max-width: 768px) {
+  .admision-hero {
+    flex-direction: column;
+  }
+
+  .admision-hero__img-half {
+    position: absolute;
+    height: 100%;
+  }
+
+  .admision-hero__content-half {
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    padding: var(--space-8) var(--space-6) var(--space-20) var(--space-6);
+  }
+
+  .admision-hero__title {
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+  
+  .admision-hero__subtitle {
+    font-size: var(--font-size-base);
+  }
+
   .wizard__timeline {
     padding-left: 48px;
   }
@@ -474,6 +497,35 @@
 
 @media (max-width: 480px) {
   .quick-links__columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+  
+  .quick-links__card {
+    padding: var(--space-4) var(--space-2);
+    border-radius: 12px;
+  }
+  
+  .quick-links__card-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .quick-links__card-title {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+  
+  .quick-links__card-desc {
+    display: none;
+  }
+  
+  .quick-links__card--saffron,
+  .quick-links__card--jet {
+    height: 120px;
+  }
+  
+  .quick-links__card--green,
+  .quick-links__card--zomp {
+    height: 100px;
   }
 }

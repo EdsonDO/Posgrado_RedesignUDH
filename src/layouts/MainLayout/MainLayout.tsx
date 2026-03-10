@@ -1,12 +1,14 @@
 import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 import StaggeredMenu from '@/components/StaggeredMenu/StaggeredMenu'
-import type { StaggeredMenuItem, StaggeredMenuSocialItem } from '@/components/StaggeredMenu/StaggeredMenu'
+import type { StaggeredMenuItem } from '@/components/StaggeredMenu/StaggeredMenu'
 import sidebarLogo from '@/assets/images/imagotipo_udh_sidebar.png'
+import Footer from '@/components/Footer/Footer'
 import './MainLayout.css'
 
 const menuItems: StaggeredMenuItem[] = [
   { label: 'Inicio', ariaLabel: 'Ir a la página de inicio', link: '/' },
+  { label: 'Nosotros', ariaLabel: 'Sobre nosotros', link: '/nosotros' },
   { label: 'Admisión', ariaLabel: 'Ver proceso de admisión', link: '/admision' },
   { label: 'Maestrías', ariaLabel: 'Ver programas de maestría', link: '/maestrias' },
   { label: 'Doctorados', ariaLabel: 'Ver programas de doctorado', link: '/doctorados' },
@@ -16,19 +18,13 @@ const menuItems: StaggeredMenuItem[] = [
   { label: 'Contacto', ariaLabel: 'Contactar asesores', link: '/contacto' },
 ]
 
-const socialItems: StaggeredMenuSocialItem[] = [
-  { label: 'Facebook', link: 'https://www.facebook.com/universidaddehuanuco' },
-  { label: 'Web UDH', link: 'https://udh.edu.pe' },
-]
-
 function MainLayout() {
   return (
     <div className="main-layout">
       <StaggeredMenu
         position="left"
         items={menuItems}
-        socialItems={socialItems}
-        displaySocials
+        displaySocials={false}
         displayItemNumbering
         isFixed
         menuButtonColor="#ffffff"
@@ -44,6 +40,8 @@ function MainLayout() {
           <Outlet />
         </Suspense>
       </main>
+
+      <Footer />
     </div>
   )
 }
